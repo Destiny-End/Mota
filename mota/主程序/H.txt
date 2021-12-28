@@ -1,0 +1,13 @@
+#include<iostream>
+#include<stdlib.h>
+#include<windows.h>
+#include<fstream>
+#define CE 1			//  控制跳层是否启用 
+#define F 20			//  楼层 
+#define Y 20			//  行数 
+#define X 20			//  列数 
+int map[F+1][Y][X];
+int off=1;
+int bMAX=50;
+int mMAX=10;
+int game=0;				// 怪物总数 

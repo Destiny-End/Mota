@@ -1,0 +1,60 @@
+int main()
+	{
+		Hum one;
+		one.floot=0;
+		
+		cleanmap();
+		readmap(&one);
+		win();
+		
+		map[one.floot][one.y][one.x]=-1;
+		int n;
+		int check;
+		system("mode con cols=41 lines=27");	//列数 行数 
+		system("title 魔塔 -BY MAN");
+		std::cout<<"\n\n   按任意键开启魔塔冒险！！  "; 
+		
+		do{
+
+		n=getch();
+		
+		if (n==97)
+		n=4;
+		else if(n==119)
+		n=8;
+		else if(n==115)
+		n=2;
+		else if(n==100)
+		n=6;
+		else if(n==27)
+		break;
+
+#if(CE)
+		else if(n==106)
+		n=369;
+#endif
+		
+		check=move(&one,n);
+		n=0;
+		drow(&one);
+		tips(check); 
+		check=1;
+		if (one.blood<=0 or game==0)
+		off=0;
+		
+		
+	}while (off==1);
+	system("Cls");
+	if (game>0)
+	std::cout<<"\n\n\t\t Game Over\n\n";
+	else std::cout<<"\n\n\t\t  You Win!\n\n";
+	
+	blink();
+	if (off == 1)
+	shuchu(&one);
+
+	
+	
+	return 0; 
+		
+}
